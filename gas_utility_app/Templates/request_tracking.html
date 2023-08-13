@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Tracking</title>
+</head>
+<body>
+    <h1>Your Service Requests</h1>
+    <ul>
+        {% for request in service_requests %}
+            <li>
+                <strong>Request Type:</strong> {{ request.request_type }}<br>
+                <strong>Status:</strong> {{ request.status }}<br>
+                <strong>Submitted At:</strong> {{ request.submitted_at }}<br>
+                {% if request.status == 'Resolved' %}
+                    <strong>Resolved At:</strong> {{ request.resolved_at }}<br>
+                {% endif %}
+                <a href="#">View Details</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
